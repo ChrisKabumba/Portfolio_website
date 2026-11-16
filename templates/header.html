@@ -1,10 +1,15 @@
+{% from 'bootstrap5/form.html' import render_form %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='assets/favicon.ico') }}"
+    />
     {{ bootstrap.load_css() }}
     <title>{{ title }}</title>
 </head>
 <body>
-    

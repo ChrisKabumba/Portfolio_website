@@ -1,10 +1,11 @@
-from flask import Flask, render_template, url_for, redirect, flash
+from flask import Flask, render_template, url_for, redirect, flash, abort
 from flask_bootstrap import Bootstrap5
 from dotenv import load_dotenv
 from flask_login import LoginManager
 from flask_ckeditor import CKEditor
 from flask_login import LoginManager, login_user, logout_user
 from models import db, User, Project
+from http import HTTPStatus
 from forms import *
 import os
 
@@ -30,10 +31,17 @@ def load_user(user_id):
 
 
 
+
+
 @app.route('/')
 def index():
 
-    return render_template('index.html')
+    
+
+    return render_template(
+        'index.html', 
+        title='Portfolio website'
+    )
 
 
 if __name__ == "__main__":
