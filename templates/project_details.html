@@ -1,0 +1,22 @@
+{% include 'header.html' %}
+
+<div id="main">
+    <section id="portfolio" class="two">
+        <div class="container">
+            <div class="h2">{{ project.title }}</div>
+            <figure class="figure">
+                <img 
+                src="{{ project.icon_url }}" 
+                class="figure-img img-fluid rounded" 
+                alt="{{ project.title }}"
+                >
+                <figcaption class="figure-caption">
+                    {{ project.title }} by <i>{{ project.user.name }}</i> on {{ project.date }}
+                </figcaption>
+            </figure>
+            <div class="p">{{ project.description|safe }}</div>
+        </div>
+    </section>
+</div>
+
+{% include 'footer.html' %}

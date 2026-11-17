@@ -1,3 +1,104 @@
 {% include 'header.html' %}
+<!-- Main -->
+<div id="main">
+
+    <!-- Intro -->
+        <section id="top" class="one dark cover">
+            <div class="container">
+
+                <header>
+                    <h2 class="alt">Hi! I'm <strong>Christian</strong>, a <a href="https://github.com/ChrisKabumba">software</a> developer<br />
+                    check out my projects here.</h2>
+                </header>
+
+                <footer>
+                    <a href="#portfolio" class="button scrolly">Projects</a>
+                </footer>
+
+            </div>
+        </section>
+
+    <!-- Portfolio -->
+        <section id="portfolio" class="two">
+            <div class="container">
+
+                <header>
+                    <h2>Portfolio</h2>
+                </header>
+
+                <p>I did the projects below as part of my academic curriculum or hobbies. They all had to achieve specific objectives following 
+                    gathered requirements at the beginning of them. Overall, they were all successful and achieved the required objectives.
+                </p>
+
+                {% for project in projects %}
+
+                    <div class="row">
+                        <div class="col-4 col-12-mobile">
+                            <article class="item">
+                                <a href="{{ url_for('project_details', project_id=project.id) }}" class="image fit"><img src="{{ project.icon_url }}" alt="" /></a>
+                                <header>
+                                    <h3>{{ project.title }}</h3>
+                                </header>
+                            </article>
+                    </div>
+
+                {% endfor %}
+
+            </div>
+        </section>
+
+    <!-- About Me -->
+        <section id="about" class="three">
+            <div class="container">
+
+                <header>
+                    <h2>About Me</h2>
+                </header>
+
+                <a href="#" class="image featured"><img src="{{ url_for('static', filename='images/pic08.jpg') }}" alt="" /></a>
+
+                <p>My name is Kabumba Christian. I am software developer. I do all kinds of projects that
+                    span my interests. I have interests in web development, mobile applications, data science
+                    and analytics, and so on. I have been in the field for more than 5 years now. It all begin in 2019
+                    with some friends showing the cool stuff they were doing with the arduino platform. But I can confidently 
+                    say that it goes back to childhood when a primary school taught me how to launch a computer and not to break it.
+                    Ever since, my curiosity about computers has only grown to where it is right now.
+                </p>
+
+            </div>
+        </section>
+
+    <!-- Contact -->
+        <section id="contact" class="four">
+            <div class="container">
+
+                <header>
+                    <h2>Contact</h2>
+                </header>
+
+                <p>Please send me an email here to reach out to me. I can assist you with project in 
+                    relation to computers. If you wish to develop website like the one you're on right now
+                    or build a robust mobile application for your company, I can help you with that. If you also 
+                    wish to integrate Artificial Intelligence in your business, you're are on the right spot. I can help
+                    you with more.
+                </p>
+
+                <form method="post" action="{{ url_for('contact') }}">
+                    <div class="row">
+                        <div class="col-6 col-12-mobile"><input type="text" name="name" placeholder="Name" /></div>
+                        <div class="col-6 col-12-mobile"><input type="text" name="email" placeholder="Email" /></div>
+                        <div class="col-12">
+                            <textarea name="message" placeholder="Message"></textarea>
+                        </div>
+                        <div class="col-12">
+                            <input type="submit" value="Send Message" />
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </section>
+
+</div>
 
 {% include 'footer.html' %}

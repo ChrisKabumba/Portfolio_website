@@ -1,15 +1,74 @@
 {% from 'bootstrap5/form.html' import render_form %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!DOCTYPE HTML>
+<!--
+	Prologue by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link
       rel="icon"
       type="image/x-icon"
       href="{{ url_for('static', filename='assets/favicon.ico') }}"
     />
     {{ bootstrap.load_css() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}" />
     <title>{{ title }}</title>
 </head>
-<body>
+
+<body class="is-preload">
+
+		<!-- Header -->
+			<div id="header">
+
+				<div class="top">
+
+					<!-- Logo -->
+					
+						<div id="logo">
+							<span class="image avatar48"><img src="{{ url_for('static', filename='images/avatar.jpg') }}" alt="Christian avatar" /></span>
+							<h1 id="title"><a href="{{ url_for('index') }}">Chris Kabumba</a></h1>
+							<p>Software Engineer</p>
+						</div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								{% if title == 'Portfolio website' %}
+								<li><a href="#top" id="top-link"><span class="icon solid fa-home">Intro</span></a></li>
+								<li><a href="#portfolio" id="portfolio-link"><span class="icon solid fa-th">Portfolio</span></a></li>
+								<li><a href="#about" id="about-link"><span class="icon solid fa-user">About Me</span></a></li>
+								<li><a href="#contact" id="contact-link"><span class="icon solid fa-envelope">Contact</span></a></li>
+								{% endif %}
+
+								{% if 'project' in title %}
+									{% for project_ in projects %}
+									<li><a 
+										href="{{ url_for('project_details', project_id=project_.id) }}" 
+										id="portfolio-link"
+										><span class="icon solid fa-th">{{project_.title}}</span></a></li>
+									{% endfor %}
+								{% endif %}
+							</ul>
+						</nav>
+
+				</div>
+
+				<div class="bottom">
+
+					<!-- Social Icons -->
+						<ul class="icons">
+							<li><a href="https://x.com/chris38890575" class="icon brands fa-twitter"><span class="label">X</span></a></li>
+							<li><a href="https://www.facebook.com/kabumba.harerimana" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="https://github.com/ChrisKabumba" class="icon brands fa-github"><span class="label">Github</span></a></li>
+							<li><a href="https://www.linkedin.com/in/kabumba-christian-3579b6193/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSHvbPNgVgzCwJWTnbVgmTsWVNRCKwXmMhcJsWJflWhqpxsHjjBmSrGfWfvxnzMJFfVtffMP" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+
+				</div>
+
+			</div>
